@@ -375,6 +375,7 @@ mod tests {
         assert!(result.is_err());
     }
 
+
     #[test]
     fn test_valid_bulk_strings() {
         assert_eq!(
@@ -401,6 +402,7 @@ mod tests {
             Ok(Resp2Type::BulkString("\x00\x01\x02\x03".to_string()))
         );
     }
+
 
     #[test]
     fn test_invalid_bulk_strings() {
@@ -517,6 +519,7 @@ mod tests {
         );
     }
 
+
     #[test]
     fn test_valid_mixed_arrays() {
         assert_eq!(
@@ -529,6 +532,7 @@ mod tests {
             ]))
         );
     }
+
 
     #[test]
     fn test_invalid_array_formats() {
@@ -548,6 +552,7 @@ mod tests {
         assert!(result.is_err());
     }
 
+
     #[test]
     fn test_invalid_nested_arrays() {
         let result = Resp2Codec::parse("*2\r\n*3\r\n:1\r\n:2\r\n:3\r\n*");
@@ -556,6 +561,7 @@ mod tests {
         let result = Resp2Codec::parse("*1\r\n*2\r\n:10\r\n");
         assert!(result.is_err());
     }
+
 
     #[test]
     fn test_invalid_mixed_arrays() {
